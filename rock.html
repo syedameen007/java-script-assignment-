@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scessor</title>
+    <style>
+       #main{
+            background-image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapersden.com%2Fanime-landscape-hd-ai-city-wallpaper%2F&psig=AOvVaw00oPKl02FMR4gnR8HTZSx3&ust=1717141091665000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCICPtJnvtIYDFQAAAAAdAAAAABAE";
+        }
+        fieldset{
+            height: 420px;
+            width: 400px;
+            background-color:yellowgreen;
+            margin: auto;
+            text-align: center;
+            border-radius: 5%;
+        }
+        button{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        label{
+            color: black;
+            font-size: 20px;
+        }
+        #uscore{
+            width: 50%;
+        }
+        #cscore{
+            width: 50%;
+        }
+        #score{
+            display: flex;
+        }
+        h4{
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <h1>Rock-Paper-Scissor</h1>
+        <br>
+        <button type="submit" style="margin-right: 30px; background-color: rgb(145, 86, 132); font-size:45px;" onclick='getwinner("rock")'>&#128074</button>
+        <button type="submit" style="background-color: aliceblue; font-size: 45px;" onclick='getwinner("paper")'>&#128400</button>
+        <button type="submit" style="margin-left:30px; background-color: antiquewhite; font-size: 45px;" onclick='getwinner("scissors")'>&#x270C</button>
+        <br><br>
+        <div id="score">
+        <div id="uscore">
+        <label>User's Score</label>
+        <h4 id="playerchoice">&#128074</h4>
+        <h4>0</h4>
+        </div>
+        <div id="cscore">
+        <label >Computer's Score</label>
+        <h4 id="computerchoice">&#128074</h4>
+        <h4>0</h4>
+        </div>
+        </div>
+        <h2 style="background-color: darkgrey; border-radius: 50%;" id="result">GAME NOT STARTED</h2>
+    </fieldset>
+    <script>
+        function getwinner(choice)
+        {
+            var no = Math.random()
+            var computerchoice = "";
+            var playerchoice = "";
+            if(no>=0 && no<1/3)
+            {
+                computerchoice = "rock";
+            }
+            else if(no>=1/3 && no<2/3)
+            {
+                computerchoice = "paper";
+            }
+            else if(no>=2/3 && no<=1)
+            {
+                computerchoice = "scissors";
+            }
+            document.getElementById("computerchoice").textContent = computerchoice;
+            document.getElementById("playerchoice").textContent = choice;
+
+            function determinewinner(userchoice, payerchoice){
+                var result = "";s
+                switch (userchoice){
+                case "rock":
+                switch (computerchoice){
+                    case "rock":
+                        result = "tie";
+                    case "paper":
+                        return "computer win";
+                    case "scissors":
+                        return "you win";
+                    break;
+                }
+                document.getElementById("result").textContent = result;
+
+            }
+        }
+            
+
+        }
+    </script>
+</body>
+</html>
